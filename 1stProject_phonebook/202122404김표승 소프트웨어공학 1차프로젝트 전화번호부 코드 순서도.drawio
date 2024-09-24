@@ -119,11 +119,17 @@
             <mxPoint x="740" y="-980" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="W2ag3Siar-q9MoTJTR3j-66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="W2ag3Siar-q9MoTJTR3j-62" target="W2ag3Siar-q9MoTJTR3j-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="W2ag3Siar-q9MoTJTR3j-62" value="이름 / 번호 입력받기" style="whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="800" y="-875" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="W2ag3Siar-q9MoTJTR3j-64" value="insert함수" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="570" y="-1180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="W2ag3Siar-q9MoTJTR3j-65" value="이름 / 번호 저장하기&lt;div&gt;-&amp;gt; saveload.c&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="800" y="-770" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
