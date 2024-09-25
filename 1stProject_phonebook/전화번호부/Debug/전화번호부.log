@@ -1,0 +1,10 @@
+﻿  delete.c
+  insert.c
+  main.c
+C:\Users\pyose\source\repos\전화번호부\main.c(7,8): warning C4477: 'scanf' : 서식 문자열 '%c'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int *'입니다.
+  print.c
+  saveload.c
+  search.c
+  코드를 생성하고 있습니다...
+C:\Users\pyose\source\repos\전화번호부\delete.c(6): warning C4716: 'delete': 값을 반환해야 합니다.
+  전화번호부.vcxproj -> C:\Users\pyose\source\repos\전화번호부\Debug\전화번호부.exe
