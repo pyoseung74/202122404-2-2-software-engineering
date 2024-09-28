@@ -229,7 +229,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="Fpf0wrWjiLXNRE6l_dHJ-5" value="조" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="W2ag3Siar-q9MoTJTR3j-106">
+        <mxCell id="Fpf0wrWjiLXNRE6l_dHJ-5" value="존재 X" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="W2ag3Siar-q9MoTJTR3j-106">
           <mxGeometry x="-0.3067" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -253,6 +253,9 @@
         </mxCell>
         <mxCell id="Fpf0wrWjiLXNRE6l_dHJ-2" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="990" y="-350" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Fpf0wrWjiLXNRE6l_dHJ-8" value="종료&lt;div&gt;main 복귀&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="775" y="-240" width="110" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
