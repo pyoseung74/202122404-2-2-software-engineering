@@ -7,7 +7,9 @@ void delEntry(PhoneBook* pb) {
     // 입력 버퍼 비우기
     while (getchar() != '\n');
 
-    int index = -1; // 삭제할 인덱스 초기화
+    int index = -1; // 값을 찾지 못했을 때 예외를 두기 위해 사용하지 않는 -1로 초기화
+
+    // PhoneBook 검색
     for (int i = 0; i < pb->n; i++) {
         if (strcmp(pb->entries[i].name, buf) == 0) {
             index = i;
@@ -15,6 +17,7 @@ void delEntry(PhoneBook* pb) {
         }
     }
 
+    // 검색 실패시
     if (index == -1) {
         printf("해당 이름이 전화번호부에 없습니다.\n");
         return;

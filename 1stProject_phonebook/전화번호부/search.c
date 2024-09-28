@@ -15,9 +15,14 @@ void search(PhoneBook* pb) {
     int found = 0; // 검색 결과 여부를 저장할 변수
 
     for (int i = 0; i < pb->n; i++) {
-        // 이름 또는 전화번호 비교
-        if (strstr(pb->entries[i].name, buf) != NULL || strstr(pb->entries[i].num, buf) != NULL) {
-            printf("%s - %s\n", pb->entries[i].name, pb->entries[i].num);
+        // 이름, 학번 또는 전화번호 비교
+        if (strstr(pb->entries[i].name, buf) != NULL ||
+            strstr(pb->entries[i].studentNumber, buf) != NULL ||
+            strstr(pb->entries[i].num, buf) != NULL) {
+            printf("이름: %s, 학번: %s, 전화번호: %s\n",
+                pb->entries[i].name,
+                pb->entries[i].studentNumber,
+                pb->entries[i].num);
             found = 1;
         }
     }

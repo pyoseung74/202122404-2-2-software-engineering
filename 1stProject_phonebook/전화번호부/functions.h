@@ -1,7 +1,7 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#define _CRT_SECURE_NO_WARNINGS // 보안 경고 제거 (Visual Studio 사용 시)
+#define _CRT_SECURE_NO_WARNINGS // 보안 경고 제거
 #define BUFFER_SIZE 100  // 문자열 저장을 위한 버퍼 크기
 
 #include <stdio.h>
@@ -10,8 +10,9 @@
 
 // 전화번호부 엔트리 구조체 정의
 typedef struct {
-    char name[BUFFER_SIZE]; // 이름 저장
-    char num[BUFFER_SIZE];  // 전화번호 저장
+    char name[BUFFER_SIZE];          // 이름 저장
+    char studentNumber[BUFFER_SIZE]; // 학번 저장
+    char num[BUFFER_SIZE];           // 전화번호 저장
 } Entry;
 
 // 전화번호부 구조체 정의

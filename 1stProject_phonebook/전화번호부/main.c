@@ -1,7 +1,7 @@
 #include "functions.h"
 
 int main() {
-    int usenum;                  // 작업 선택에 필요한 변수
+    int usenum;   // 작업 선택에 필요한 변수
 
     // 전화번호부 초기화
     PhoneBook* pb = (PhoneBook*)malloc(sizeof(PhoneBook));

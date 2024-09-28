@@ -1,7 +1,7 @@
 #include "functions.h"
 
 void insert(PhoneBook* pb) {
-    char buf1[BUFFER_SIZE], buf2[BUFFER_SIZE]; // 이름과 전화번호를 저장할 버퍼
+    char buf1[BUFFER_SIZE], buf2[BUFFER_SIZE], buf3[BUFFER_SIZE]; // 이름, 학번, 전화번호를 저장할 버퍼
     char formattedNum[BUFFER_SIZE];            // 형식화된 전화번호를 저장할 버퍼
 
     // 용량 부족 시 확장
@@ -16,7 +16,7 @@ void insert(PhoneBook* pb) {
         pb->capacity = new_capacity;
     }
 
-    // 이름 입력
+    // 데이터 입력받기 (이름, 학번, 전화번호)
     printf("이름을 입력하세요: ");
     scanf(" %[^\n]", buf1); // 공백 포함하여 입력 받기
     // 입력 버퍼 비우기
@@ -27,22 +27,33 @@ void insert(PhoneBook* pb) {
         return;
     }
 
-    // 번호 입력
-    printf("전화번호를 입력하세요 (숫자만 입력하거나 '-'를 포함할 수 있습니다): ");
-    scanf("%s", buf2); // 전화번호 입력 받기
+    // 학번 입력
+    printf("학번을 입력하세요: ");
+    scanf("%s", buf2);
     // 입력 버퍼 비우기
     while (getchar() != '\n');
 
     if (strlen(buf2) >= BUFFER_SIZE) {
+        printf("학번이 너무 깁니다.\n");
+        return;
+    }
+
+    printf("전화번호를 입력하세요 (숫자만 입력하거나 '-'를 포함할 수 있습니다): ");
+    scanf("%s", buf3); // 전화번호 입력 받기
+    // 입력 버퍼 비우기
+    while (getchar() != '\n');
+
+    if (strlen(buf3) >= BUFFER_SIZE) {
         printf("전화번호가 너무 깁니다.\n");
         return;
     }
 
     // 전화번호 형식화
-    formatNum(buf2, formattedNum);
+    formatNum(buf3, formattedNum);
 
     // 데이터 저장
     strcpy(pb->entries[pb->n].name, buf1);
+    strcpy(pb->entries[pb->n].studentNumber, buf2);
     strcpy(pb->entries[pb->n].num, formattedNum);
 
     pb->n++; // 등록된 인원 수 증가
