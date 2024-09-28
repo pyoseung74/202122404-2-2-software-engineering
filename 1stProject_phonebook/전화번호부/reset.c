@@ -1,7 +1,7 @@
 #include "functions.h"
 
 void reset(PhoneBook* pb) {
-    free(pb->entries); // ¿£Æ®¸® ¸Þ¸ð¸® ÇØÁ¦
+    free(pb->entries); // ì—”íŠ¸ë¦¬ ë©”ëª¨ë¦¬ í•´ì œ
     pb->entries = NULL;
     pb->n = 0;
     pb->capacity = 0;
