@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="delEntry.c" />
+    <ClCompile Include="formatNum.c" />
     <ClCompile Include="insert.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="list.c" />

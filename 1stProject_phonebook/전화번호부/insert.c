@@ -18,23 +18,34 @@ void insert(PhoneBook* pb) {
 
     // 이름 입력
     printf("이름을 입력하세요: ");
-    scanf("%s", buf1); // 이름 입력 받기
+    scanf(" %[^\n]", buf1); // 공백 포함하여 입력 받기
+    // 입력 버퍼 비우기
+    while (getchar() != '\n');
+
+    if (strlen(buf1) >= BUFFER_SIZE) {
+        printf("이름이 너무 깁니다.\n");
+        return;
+    }
 
     // 번호 입력
     printf("전화번호를 입력하세요 (숫자만 입력하거나 '-'를 포함할 수 있습니다): ");
     scanf("%s", buf2); // 전화번호 입력 받기
+    // 입력 버퍼 비우기
+    while (getchar() != '\n');
+
+    if (strlen(buf2) >= BUFFER_SIZE) {
+        printf("전화번호가 너무 깁니다.\n");
+        return;
+    }
 
     // 전화번호 형식화
-    formatPhoneNumber(buf2, formattedNum);
+    formatNum(buf2, formattedNum);
 
     // 데이터 저장
-    strncpy(pb->entries[pb->n].name, buf1, BUFFER_SIZE - 1);
-    pb->entries[pb->n].name[BUFFER_SIZE - 1] = '\0';
+    strcpy(pb->entries[pb->n].name, buf1);
+    strcpy(pb->entries[pb->n].num, formattedNum);
 
-    strncpy(pb->entries[pb->n].num, formattedNum, BUFFER_SIZE - 1);
-    pb->entries[pb->n].num[BUFFER_SIZE - 1] = '\0';
-
-    pb->n++; // 인원 수 증가
+    pb->n++; // 등록된 인원 수 증가
 
     printf("%s 이(가) 전화번호부에 저장되었습니다.\n", buf1);
 

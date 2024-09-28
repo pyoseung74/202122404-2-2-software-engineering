@@ -1,7 +1,7 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#define _CRT_SECURE_NO_WARNINGS // 보안 경고 제거
+#define _CRT_SECURE_NO_WARNINGS // 보안 경고 제거 (Visual Studio 사용 시)
 #define BUFFER_SIZE 100  // 문자열 저장을 위한 버퍼 크기
 
 #include <stdio.h>

@@ -10,13 +10,11 @@ void saveload(PhoneBook* pb, int mode) {
             printf("파일을 열 수 없습니다: %s\n", pb->frame);
             printf("새로 만들겠습니까? (Y/N): ");
             scanf("%s", choice); // 사용자 입력 받기
+            // 입력 버퍼 비우기
+            while (getchar() != '\n');
 
             if (choice[0] == 'Y' || choice[0] == 'y') {
                 fp = fopen(pb->frame, "w"); // 새로운 파일 생성
-                if (fp == NULL) {
-                    fprintf(stderr, "파일을 생성할 수 없습니다: %s\n", pb->frame);
-                    return;
-                }
                 fclose(fp);
                 printf("새로운 전화번호부 파일이 생성되었습니다.\n");
                 return;
@@ -48,8 +46,7 @@ void saveload(PhoneBook* pb, int mode) {
             }
 
             // 이름 저장
-            strncpy(pb->entries[pb->n].name, token, BUFFER_SIZE - 1);
-            pb->entries[pb->n].name[BUFFER_SIZE - 1] = '\0';
+            strcpy(pb->entries[pb->n].name, token);
 
             // 번호 저장
             token = strtok(NULL, ",");
@@ -57,10 +54,9 @@ void saveload(PhoneBook* pb, int mode) {
                 fprintf(stderr, "파일 형식이 올바르지 않습니다.\n");
                 break;
             }
-            strncpy(pb->entries[pb->n].num, token, BUFFER_SIZE - 1);
-            pb->entries[pb->n].num[BUFFER_SIZE - 1] = '\0';
+            strcpy(pb->entries[pb->n].num, token);
 
-            pb->n++; // 인원 수 증가
+            pb->n++; // 등록된 인원 수 증가
         }
 
         fclose(fp); // 파일 닫기

@@ -7,6 +7,8 @@ void list(PhoneBook* pb) {
         printf("전화번호부가 비어 있습니다.\n");
         printf("새로운 번호를 등록하시겠습니까? (Y/N): ");
         scanf("%s", choice); // 사용자 입력 받기
+        // 입력 버퍼 비우기
+        while (getchar() != '\n');
 
         if (choice[0] == 'Y' || choice[0] == 'y') {
             insert(pb); // 번호 등록 함수 호출

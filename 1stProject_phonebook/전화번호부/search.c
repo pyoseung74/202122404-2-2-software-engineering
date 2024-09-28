@@ -3,17 +3,19 @@
 void search(PhoneBook* pb) {
     char buf[BUFFER_SIZE]; // 검색할 이름 또는 번호를 저장할 버퍼
     printf("검색할 이름 또는 전화번호를 입력하세요: ");
-    scanf("%s", buf); // 검색어 입력 받기
+    scanf(" %[^\n]", buf); // 검색어 입력 받기
+    // 입력 버퍼 비우기
+    while (getchar() != '\n');
 
-    if (strlen(buf) == 0) {
-        printf("이름 또는 전화번호를 입력해주세요.\n");
+    if (strlen(buf) >= BUFFER_SIZE) {
+        printf("검색어가 너무 깁니다.\n");
         return;
     }
 
     int found = 0; // 검색 결과 여부를 저장할 변수
 
     for (int i = 0; i < pb->n; i++) {
-        // 이름 또는 전화번호 비교 (형식화된 번호 사용)
+        // 이름 또는 전화번호 비교
         if (strstr(pb->entries[i].name, buf) != NULL || strstr(pb->entries[i].num, buf) != NULL) {
             printf("%s - %s\n", pb->entries[i].name, pb->entries[i].num);
             found = 1;

@@ -4,13 +4,17 @@ int main() {
     int usenum;                  // 작업 선택에 필요한 변수
 
     // 전화번호부 초기화
-    PhoneBook pb;
-    pb.n = 0;                     // 현재 등록된 인원 수 초기화
-    pb.capacity = 0;              // 용량 초기화
-    pb.entries = NULL;            // 엔트리 배열 초기화
-    pb.frame = "C:\\temp\\Number.txt"; // 파일 경로 설정
+    PhoneBook* pb = (PhoneBook*)malloc(sizeof(PhoneBook));
+    if (pb == NULL) {
+        fprintf(stderr, "메모리 할당 실패\n");
+        return 1;
+    }
+    pb->n = 0;                     // 현재 등록된 인원 수 초기화
+    pb->capacity = 0;              // 용량 초기화
+    pb->entries = NULL;            // 엔트리 배열 초기화
+    pb->frame = "Number.txt";      // 파일 경로 설정
 
-    saveload(&pb, 0); // 데이터 불러오기
+    saveload(pb, 0); // 데이터 불러오기
 
     do {
         // 메뉴 출력
@@ -30,19 +34,19 @@ int main() {
 
         switch (usenum) {
         case 1:
-            insert(&pb);  // 번호 등록 함수 호출
+            insert(pb);  // 번호 등록 함수 호출
             break;
         case 2:
-            touch(&pb);   // 번호 수정 함수 호출
+            touch(pb);   // 번호 수정 함수 호출
             break;
         case 3:
-            delEntry(&pb); // 번호 삭제 함수 호출
+            delEntry(pb); // 번호 삭제 함수 호출
             break;
         case 4:
-            search(&pb);  // 전화번호부 검색 함수 호출
+            search(pb);  // 전화번호부 검색 함수 호출
             break;
         case 5:
-            list(&pb);    // 전화번호부 출력 함수 호출
+            list(pb);    // 전화번호부 출력 함수 호출
             break;
         case 6:
             printf("전화번호부를 종료합니다.\n");
@@ -53,6 +57,7 @@ int main() {
         }
     } while (usenum != 6);
 
-    reset(&pb); // 메모리 해제
+    reset(pb); // 메모리 해제
+    free(pb);  // PhoneBook 구조체 자체 메모리 해제
     return 0;
 }
