@@ -1,23 +1,37 @@
-#define strdup _strdup		// visualstudio에서 strdup이 _strdup으로 사용되므로 호환을 위해 사용함
-#define _CRT_SECURE_NO_WARNINGS // 경고 제거
-#define BUFFER_SIZE 100  // 이름 혹은 전화번호를 임시 저장할 공간 만들기
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
 
-#include <stdio.h>  // 표준 입출력 함수 사용을 위한 헤더 파일
-#include <stdlib.h> // 동적 메모리 할당을 위한 헤더 파일
-#include <string.h> // 문자열 처리 함수 사용을 위한 헤더 파일
+#define _CRT_SECURE_NO_WARNINGS // 보안 경고 제거
+#define BUFFER_SIZE 100  // 문자열 저장을 위한 버퍼 크기
 
-// 전역 변수 선언
-extern int n;                // 현재 등록된 인원 수
-extern int capacity;         // 배열의 현재 용량 (추후 realloc 을 사용하여 공간 확장하기) 
-extern char** name;          // 이름을 저장할 동적 배열
-extern char** num;           // 번호를 저장할 동적 배열
-extern const char* frame;    // 전화번호부 파일의 경로
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// 전화번호부 엔트리 구조체 정의
+typedef struct {
+    char name[BUFFER_SIZE]; // 이름 저장
+    char num[BUFFER_SIZE];  // 전화번호 저장
+} Entry;
+
+// 전화번호부 구조체 정의
+typedef struct {
+    int n;                  // 현재 등록된 인원 수
+    int capacity;           // 배열의 현재 용량
+    Entry* entries;         // 엔트리 배열
+    const char* frame;      // 파일 경로
+} PhoneBook;
 
 // 함수 원형 선언
-void search();               // 전화번호부에서 이름 검색하기
-void insert();               // 전화번호부에 신규 등록하기
-void delEntry();             // 전화번호부에서 등록된 정보 삭제하기
-void list();                 // 전화번호부 전체 목록 출력하기
-void touch();                // 전화번호 수정하기
-void reset();                // 동적 메모리 해제하기
-void saveload(int mode);       // 전화번호부 txt파일에 저장&불러오기 함수 (mode: 0-불러오기, 1-저장하기)
+void search(PhoneBook* pb);           // 전화번호부에서 이름 또는 번호 검색하기
+void insert(PhoneBook* pb);           // 전화번호부에 신규 등록하기
+void delEntry(PhoneBook* pb);         // 전화번호부에서 등록된 정보 삭제하기
+void list(PhoneBook* pb);             // 전화번호부 전체 목록 출력하기
+void touch(PhoneBook* pb);            // 전화번호 수정하기
+void reset(PhoneBook* pb);            // 동적 메모리 해제하기
+void saveload(PhoneBook* pb, int mode); // 전화번호부 파일 입출력 함수
+
+// 전화번호 형식화 함수 원형 선언
+void formatNum(const char* input, char* output);
+
+#endif // FUNCTIONS_H

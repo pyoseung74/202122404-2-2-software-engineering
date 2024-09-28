@@ -1,14 +1,8 @@
 #include "functions.h"
 
-void reset() {
-    for (int i = 0; i < n; i++) {
-        free(name[i]);
-        free(num[i]);
-    }
-    free(name);
-    free(num);
-    name = NULL;
-    num = NULL;
-    n = 0;
-    capacity = 0;
+void reset(PhoneBook* pb) {
+    free(pb->entries); // 동적 메모리 해제
+    pb->entries = NULL;
+    pb->n = 0;
+    pb->capacity = 0;
 }
